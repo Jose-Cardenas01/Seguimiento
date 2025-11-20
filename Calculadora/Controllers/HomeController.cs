@@ -1,4 +1,3 @@
-using Calculadora.Core;
 using Calculadora.Data;
 using Calculadora.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +19,7 @@ namespace Calculadora.Controllers
             return View(new Inputs { monto = 0, porcentaje = 0 });
         }
         [HttpPost]
-        public async Task<IActionResult> Calculator([FromForm] Inputs inp)
+        public IActionResult Calculator([FromForm] Inputs inp)
         {
             if (!ModelState.IsValid)
             {
