@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Inputs
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        <h2>Calculadora de Propinas</h2>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Calculator" method="post" class="row g-3">
+            <div class="form-floating col-md-12">
+                <input asp-for="monto" class="form-control"/>
+                <label asp-for="monto">Total de la cuenta</label>
+                <span asp-validation-for="monto" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-12 form-floating">
+                <input asp-for="porcentaje" class="form-control"/>
+                <label asp-for="porcentaje">Porcentaje</label>
+                <span asp-validation-for="porcentaje" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-12">
+                <button class="btn btn-primary btn-sm" type="submit">
+                    Calcular
+                </button>
+            </div>
+        </form>
+
+        @{
+            if (Model?.propina is not null)
+            {
+                <div>
+                    <h4>La propina calculada es:</h4>
+                    <p>@Model.propina</p>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts 
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
