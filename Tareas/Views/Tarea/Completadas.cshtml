@@ -1,0 +1,70 @@
+﻿@model List<TareaDTO>
+<div class="page-title dark-background aos-init aos-animate" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
+    <div class="container position-relative">
+        <h1>Menu de Tareas</h1>
+        <p>Lista de Tareas</p>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-action="Index">Task</a></li>
+                <li class="current">Completadas</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="list-unstyled mb-0 row">
+            <div class="col-auto">
+                <a asp-action="Index">´Pendiente</a>
+            </div>
+            <h6 class="col-auto current">Completados</h6>
+            <div class="col-auto ms-auto">
+                <a asp-action="Create"><i class="bi bi-plus-circle"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Tittle</th>
+                    <th>Description</th>
+                    <th>Date of Initial</th>
+                    <th>Date of Finish</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.DateInitial</td>
+                        <td>@item.DateFinish</td>
+                        <td>
+                            <form asp-action="Delete" method="post" asp-route-Id="@item.Id" style="display: contents;">
+                                <button class="btn btn-sm btn-danger btnDelete">
+                                    <i class="bi bi-trash-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Eliminar"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,60 @@
+﻿@model TareaDTO
+<div class="page-title dark-background aos-init aos-animate" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
+    <div class="container position-relative">
+        <h1>Menu de Tareas</h1>
+        <p>Lista de Tareas</p>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Tarea" asp-action="Index">Task</a></li>
+                <li class="current">Create</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        <h2 class="m-0 font-weight-bold text-primary">Crear Tarea</h2>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Create" method="post" class="row g-3">
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input asp-for="Title" class="form-control">
+                    <label asp-for="Title">Titulo</label>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input class="form-control" asp-for="Description">
+                    <label asp-for="Description">Descripcion</label>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input asp-for="DateFinish" class="form-control" placeholder="@Html.DisplayFor(dto => dto.DateFinish)">
+                    <label asp-for="DateFinish"></label>
+                    <span asp-validation-for="DateFinish" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
