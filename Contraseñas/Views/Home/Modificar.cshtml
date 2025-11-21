@@ -1,0 +1,26 @@
+﻿@model string
+
+<div class="page-title dark-background aos-init aos-animate" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
+    <div class="container position-relative">
+        <h1>Menu de Tareas</h1>
+        <p>Lista de Tareas</p>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="current">Modificar</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<form asp-action="Cambiar" method="post" class="form-floating row">
+    <div class="col-md-12">
+        <input class="form-control" name="id" value="@Model"/>
+    </div>
+
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-outline-primary">Confirmar Cambio</button>
+    </div>
+
+    <h4>@Model</h4>
+</form>

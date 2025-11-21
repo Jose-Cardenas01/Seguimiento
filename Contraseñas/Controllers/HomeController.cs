@@ -20,8 +20,18 @@ namespace Contraseñas.Controllers
         [HttpPost]
         public IActionResult Generar()
         {
-            Guid id = Guid.NewGuid();
+            string id = Guid.NewGuid().ToString();
             return View("Index", id);
+        }
+        [HttpGet]
+        public IActionResult Modificar(string id)
+        {
+            return View("Modificar", id);
+        }
+        [HttpPost]
+        public IActionResult Cambiar([FromForm] string id)
+        {
+            return View("Modificar", id);
         }
 
         public IActionResult Privacy()

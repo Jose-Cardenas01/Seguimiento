@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Contraseñas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a81a3729320524e7086d5802c5fbc12270572525")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32ead5bd79cc996ae606c6661c1096ff695b31ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("Contraseñas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Contraseñas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
