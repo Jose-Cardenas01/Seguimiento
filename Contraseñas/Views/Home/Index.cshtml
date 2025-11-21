@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Guid
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <form asp-action="Generar" method="post" class="row g-3">
+        <div class="form-floating col-md-8">
+            <label>Nueva Contraseña</label>
+        </div>
+
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-outline-info">Generar</button>
+        </div>
+    </form>
+</div>
+
+<h4>@Model</h4>
