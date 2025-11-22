@@ -1,0 +1,66 @@
+﻿@model Perdidas
+<div class="page-title dark-background aos-init aos-animate" data-aos="fade" style="background-image: url(assets/img/travel/showcase-8.webp);">
+    <div class="container position-relative">
+        <h1>Gastos del Mes</h1>
+        <p>Todos los gastos registrados durante el mes</p>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-action="Index"></a>Home</li>
+                <li class="current">Create</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        <h2 class="m-0 font-weight-bold text-primary">Registrar Gastos</h2>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Create" method="post" class="row g-3">
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input asp-for="Monto" class="form-control">
+                    <label asp-for="Monto">Monto</label>
+                    <span asp-validation-for="Monto" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input class="form-control" asp-for="descripcion">
+                    <label asp-for="descripcion">Descripcion</label>
+                    <span asp-validation-for="descripcion" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input asp-for="fecha" class="form-control" placeholder="@Html.DisplayFor(dto => dto.fecha)">
+                    <label asp-for="fecha"></label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <select asp-for="CategoriaID" asp-items="@ViewBag.Categoria">
+                        <option value="">Seleccione una Categoria</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
